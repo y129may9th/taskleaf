@@ -204,4 +204,14 @@ ja:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
-    pm: 午後
+      pm: 午後
+  models :
+  　task: タスク
+  attributes:
+    task:
+      id: ID
+      name: 名称
+      description: 詳しい説明
+      created_at: 登録日時
+      updated_at: 更新日時
+
