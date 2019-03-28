@@ -1,0 +1,7 @@
+h1 EDIT
+
+.nav.justify-content-end
+    = link_to '🐻 Users 🐻', admin_users_path, class: 'nav-link'
+
+= render partial: 'form', locals: { user: @user }
+
