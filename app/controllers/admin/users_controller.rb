@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_action :require_admin
+
   def new
     @user = User.new
   end
@@ -34,6 +36,11 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path, notice: "Delete #{@user.name} ..."
+  end
 
   private 
 
