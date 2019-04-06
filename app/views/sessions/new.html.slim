@@ -2,7 +2,7 @@ h1 LOGIN
 
 = form_with scope: :session, local: true do |f|
     .form-group
-        = f.label :emai, 'EMAIL'
+        = f.label :email, 'EMAIL'
         = f.text_field :email, class: 'form-control', id: 'session_email'
     .form-group
         = f.label :password, 'PASSWORD'
