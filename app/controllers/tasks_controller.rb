@@ -23,6 +23,8 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
     if @task.save
+        logger.debug "@@@@task: #{@task.attributes.inspect}@@@@"
+        Rails.application.config.custom_logger.debug 'custom_loggerに出力'
         redirect_to @task, notice: "task [#{@task.name}] was saved!👏"
     else
         render :new
@@ -33,7 +35,6 @@ class TasksController < ApplicationController
     @task.destroy
     redirect_to tasks_url, notice: "Deleted [#{@task.name}] 😈"
   end
-
 
   private 
 
