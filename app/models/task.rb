@@ -20,5 +20,18 @@ class Task < ApplicationRecord
   def validate_name_not_include_comma
     errors.add(:name, ' : Do not include comma in "name form"') if name&.include?(',')
   end
+
+  def self.csv_attributes
+    ["name", "description", "created_at", "updated_at"]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_attributes
+      all.each do |task|
+        csv << csv_attributes.map{ |attr| task.send(attr) }
+      end
+    end
+  end
 end
 
