@@ -30,3 +30,10 @@ table.table.table-hover
                     = link_to '✂️ edit ✂️', edit_task_path(task), class: 'btn btn-primary mr-3'
                     = link_to '😈 delete 😈', task, method: :delete, data: { confirm: " Are you sure ? delete [#{task.name}] !" }, class: 'btn btn-danger'
 
+= link_to 'エクスポート', tasks_path(format: :csv), class: 'btn btn-primary mb-3'
+
+= form_tag import_tasks_path, multipart: true, class: 'mb-3' do
+  = file_field_tag :file
+  = submit_tag "インポート", class: 'btn btn-primary'
+
+
