@@ -41,7 +41,7 @@ class TasksController < ApplicationController
 
     if @task.save
         TaskMailer.creation_email(@task).deliver_now
-        Rails.application.config.custom_logger.debug 'custom_loggerに出力'
+        SampleJob.perform_later
         redirect_to @task, notice: "task [#{@task.name}] was saved!👏"
     else
         render :new
