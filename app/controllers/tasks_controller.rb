@@ -50,7 +50,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: "Deleted [#{@task.name}] 😈"
+    head :no_content
   end
 
   def import
