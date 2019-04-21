@@ -79,3 +79,5 @@ gem 'kaminari'
 
 gem 'sidekiq'
 
+gem 'webpacker'
+
